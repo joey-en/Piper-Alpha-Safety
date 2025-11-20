@@ -1,0 +1,86 @@
+IChemE
+Safety & Loss Prevention
+Special Interest Group
+
+Lessons Learned Database
+Individual Incident Summary Report
+
+Incident Title: Gas Condensate Reinjection Pump Leak
+Incident Type: Explosion and Fire
+Date: 6th July 1988
+Country: UK (offshore Scotland)
+Location: Piper Oil Field (North Sea)
+Fatalities: 167
+Injuries: Unknown
+Cost: US$ 2.4 bn (2021) - Ref. 3
+
+Incident Description
+A standby condensate pump for reinjecting gas condensate into an oil export
+line on the Piper (Alpha) platform had been de-energised for maintenance.
+Its discharge pressure safety valve (PSV) was also removed and blind flange
+assemblies were fitted to the open PSV pipe connections. Meanwhile, the
+running condensate pump failed and would not restart. Liquid levels in the
+gas/liquid separation system were rising and would eventually trigger a total
+shutdown of the platform if not reversed. Night shift operators were aware
+the standby pump had been taken out of service for maintenance by the day
+shift but believed the work had not yet begun, so they decided to re-energise
+and start the standby pump. Gas condensate leaked from a PSV blind flange
+assembly; it found an ignition source and exploded. The explosion was soon
+followed by an oil pipe rupture and pool fire. The incident escalated rapidly
+as 3 high pressure gas lines ruptured after 20, 50 and 80 mins, respectively,
+creating a towering inferno. Smoke and flames outside the accommodation
+module made evacuation by helicopter or lifeboat impossible.
+
+Incident Analysis
+Basic cause (most probable) was a loss of primary containment (LOPC) of
+hydrocarbon condensate due to overpressure of a temporary blind flange
+assembly after a pump undergoing maintenance was started in error.
+Critical factors included: 1) The platform was originally designed to produce
+and export oil only but was extensively modified to also enable export of gas,
+2) Gas compression and condensate reinjection facilities were retrofitted
+beneath the control room, electrical utility and accommodation modules, 3)
+Absence of fire protection for structural steel and gas risers, 4) Continued
+operation of inter-connected oil production platforms after the first explosion.
+Root causes included: 1) Inadequate control of work (work permit systems),
+2) Poor communication (shift handover and inter-platform), 3) Inadequate
+management of change (retrofitting a gas treatment system on a congested
+platform), 4) Inadequate protection (absence of automatic shutoff valves and
+dedicated deluge systems for gas risers), 5) Poor emergency preparedness
+(failure to conduct evacuation drills and to depressure the subsea pipelines),
+6) Inadequate leadership (personal safety prioritised over process safety).
+
+Lessons Learned
+1) Offshore safety legislation should be goal-setting rather than rule-based
+to foster innovation and continuous improvement in installation integrity.
+2) Owner/operators of fixed and mobile offshore installations should submit
+a Safety Case document to the regulator detailing how major accident risks
+and safe evacuation, escape and rescue of personnel are managed,
+3) Production platforms should be provided with fire and gas detection
+systems, explosion protection and active (water deluge) and passive
+(insulation) fire protection systems, 4) Production platforms should have
+temporary safe refuges (TSRs) which protect personnel from external fire
+and smoke while an emergency is assessed and/or preparations are made
+for evacuation, 5) Evacuation drills should be routinely practised.
+
+More Information
+1) "Public Inquiry into the Piper Alpha Disaster, Volumes 1 and 2", Her
+Majesty's Stationery Office (HMSO), ISBN 0-10-113102-X (1990).
+2) "Piper Alpha - What Have We Learned?", F. Macleod and S.M.
+Richardson, IChemE Loss Prevention Bulletin 261 (2018).
+3) "100 Largest Losses in the Hydrocarbon Industry", Marsh Property Risk
+Consulting Practice, 27th Edition (2022).
+
+Industry Sector: Oil & Gas
+Process Type: Offshore Production Platform
+Incident Type: Explosion & Fire
+Equipment Category: Mechanical
+Equipment Class: Piping
+Equipment Type: Blinds
+
+Rev. 1
+03-Jul-23
+
+Page 1 of 1
+
+Peter Marsh
+Director - XBP Refining Consultants Ltd.

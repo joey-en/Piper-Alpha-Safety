@@ -1,0 +1,88 @@
+Standards
+This page highlights the OSHA standards, regulatory requirements, and preamble to the final rule for HAZWOPER. It also includes links to OSHA directives (i.e., instructions for compliance officers) that may be applicable in the event of an uncontrolled release of a hazardous substance.
+
+The HAZWOPER standard for the construction industry (29 CFR 1926.65) is identical to 29 CFR 1910.120. For brevity, the HAZWOPER standard is referenced as 29 CFR 1910.120 throughout the remainder of this web page. In limited exceptions, the HAZWOPER standard for construction provides examples or references to other standards for the construction industry that vary from what are provided in the HAZWOPER standard for general industry.
+
+Key provisions and employer requirements under the HAZWOPER standard are summarized below.
+
+29 CFR 1910.120 – HAZARDOUS WASTE OPERATIONS AND EMERGENCY RESPONSE
+
+1910.120(b) – (o) Cleanup Operations - Employer Requirements
+
+1910.120(b) - Safety and health program: Develop and implement a written safety and health program that describes the work policies, practices, and procedures for workers who conduct hazardous waste operations/cleanup work. The program must identify, evaluate, and control safety and health hazards, and provide emergency response procedures for hazardous waste operations.
+
+1910.120(c) - Site characterization and analysis: Before workers enter a new site, perform a preliminary evaluation to identify hazards to which workers may be exposed and determine how to protect them with engineering controls, work practices, and personal protective equipment (PPE).
+
+1910.120(d) - Site control: Before clean-up begins establish procedures and safe practices to protect workers from hazardous substances.
+
+1910.120(e) - Training: Prior to engaging in hazardous waste operations, train workers, including employees, supervisors, and site managers. See standard for training requirements depending on each individual's job function on the site.
+
+1910.120(f) - Medical surveillance: Monitor worker's health to detect medical conditions that could harm them. Provide access to regular medical examinations and consultations for workers potentially overexposed to hazardous substances during their work. Access to and maintenance of monitoring and medical records must be maintained according to 29 CFR 1910.1020.
+
+1910.120(g) - Engineering controls, work practices, and personal protective equipment (PPE): Control hazards according to the hierarchy of controls with engineering controls that “engineer” or physically change the work environment to reduce exposure levels. When engineering controls alone are not sufficient, combine the controls with safe work practices. If the combination is not sufficient then, as a last option, provide appropriate PPE to reduce worker exposure to safe levels.
+
+1910.120(h) - Monitoring: Establish a monitoring program that applies to conditions at the site. Briefly describe the hazards being monitored, the monitoring equipment to be used, and how often monitoring will occur.
+
+1910.120(i) - Informational programs: Inform workers, contractors, and subcontractors, or their representatives, about any chemi­cal, physical, and toxicological properties of the hazardous substances to which exposure may occur before they begin work at the site.
+
+1910.120(j) - Handling drums and containers: Hazardous substances, contaminated soils, liquids, and other residues must be handled, transported, labeled, and disposed of as directed in this paragraph. Appropriately manage drums or containers on-site including procedures for opening, managing spills, and moving and handling shock-sensitive waste.
+
+1910.120(k) - Decontamination: Develop, implement, communicate, andkeep available a writtenprogram that includes procedures to ensure that workers potentially exposed to hazardous substances decontaminate themselves and decontaminate or properly dispose of contaminated equipment, including PPE.
+
+1910.120(l) - Emergency response by employees at uncontrolled hazardous waste sites: Develop, implement, and make available to OSHA, employees, and their representatives a written response plan that describes what workers must do in an emergency.
+
+1910.120(m) - Illumination: Provide workers with enough light to conduct their work safely (see Table H).
+
+1910.120(n) - Sanitation at temporary workplaces: Provide potable water and appropriate toilets, hand washing, showering, changing, temporary sleeping, and food handling facilities as needed at hazardous waste worksites.
+
+1910.120(o) - New technology programs: Develop and implement system for introducing new technologies to improve worker protection during hazardous waste clean-up operations. Evaluate new technologies aimed at improving worker protection on worksites.
+
+1910.120(p) – TSD Facility Operations - Employer Requirements
+
+1910.120(p)(1) – Safety and health program: Develop, implement, and keep available for inspection a written safety and health program that describes the work policies, practices, and procedures that workers who conduct hazardous waste work must follow. The program must provide identification, evaluation, and control for safety and health hazards in the facility; must include emergency response procedures; must address as appropriate site analysis, engineering controls, maximum exposure limits, and hazardous waste handling procedures; and must provide for using new technology. Additionally the remaining requirements of section 1910.120(p) must be followed (see below).
+
+1910.120(p)(2) - Hazard communication program: Implement and maintain a hazard communication program meeting the requirements of the Hazard Communication standard in 29 CFR 1910.1200. The section does not apply to some hazardous waste subject to Environmental Protection Agency (EPA) regulation or clean-up conducted under EPA regulation.
+
+1910.120(p)(3) - Medical surveillance program: Develop and implement a program to monitor worker's health to detect adverse medical conditions. Provide access to regular medical examinations and consultations for workers potentially overexposed to hazardous substances during their work. The program must meet the requirements of 1910.120(f). Access to and maintenance of monitoring and medical records must be maintained according to 29 CFR 1910.1020.
+
+1910.120(p)(4) - Decontamination program: Develop and implement a written program that includes procedures to ensure that workers who may be exposed to hazardous substances decontaminate themselves and decontaminate or properly dispose of contaminated equipment, including PPE. It must meet the requirements of 1910.120(k).
+
+1910.120(p)(5) - New technology program: Develop and implement procedures for introducing new technologies aimed at improving the protection of workers on worksites. The procedures must meet the requirements of 1910.120(o).
+
+1910.120(p)(6) - Material handling program: Develop and implement procedures for appropriately managing drums or containers on-site including procedures for opening containers, managing spills, and moving and handling shock-sensitive waste. The procedures must meet the requirements of 1910.120(j)(1)(ii)-(viii), (j)(xi), (j)(3), and (j)(8).
+
+1910.120(p)(7) – Training program: Develop and implement a training program for new employees, current employees, and trainers. New employees must receive 24 hours of training; current employees may be credited based on equivalency of prior training and experience. The training program must include an 8-hour annual refresher component. Trainers may either have satisfactorily completed an appropriate train-the-trainer course or have academic credentials and instruction experience necessary to demonstrate good command of the subject matter and competent instructional skills. Train workers on: potential exposure hazards at the site, decontamination procedures, how to minimize exposure, how to use engineering controls and PPE, medical surveillance procedures, and response procedures for emergencies.
+
+1910.120(p)(8) - Emergency response program: Develop and implement an emergency response plan (ERP) outlining worker responsibilities during an emergency. Keep the written plan as a section of each employer's safety and health plan required by paragraph 1910.120(p)(1). An employer is exempt from section 1910.120(p)(8) provided all its employees are evacuated during an emergency, none are permitted to assist in the emergency, and the employer provides an emergency action plan (EAP) meeting section 1910.38 in general industry or section 1926.35 in construction requirements. Additionally employers must completely train each employee on the plan, standard operating procedures, PPE, and emergency incident procedures before the employee is involved in an actual emergency incident.
+
+1910.120(q) - Emergency Response Program to Hazardous Substance Releases – Employer Requirements
+
+This paragraph applies to employers with employees doing emergency response operations no matter where a hazardous substance release occurs except it does not cover employees in operations listed in paragraphs 1910.120(a)(1)(i) through (a)(1)(iv).
+
+1910.120(q)(1) – Emergency response plan: Develop, implement, and keep available a written emergency response plan for handling anticipated emergencies. The plan must be implemented before starting emergency response operations. Employers who evacuate all their employees from danger and do not permit any to help in handling the emergency are exempt from paragraph 1910.120(q), if they provide an emergency action plan under section 1910.38 in general industry or section 1926.35 in construction.
+
+1910.120(q)(2) – Elements of an emergency response plan: The employer's emergency response plan must have at least all the following elements unless they are addressed elsewhere: pre-emergency planning and coordination with outside parties; personnel roles, lines of authority, training, and communication; emergency recognition and prevention; safe distances and places of refuge; site security and control; evacuation routes and procedures; decontamination; emergency medical treatment and first aid; emergency alerting and response procedures; critique of response and follow-up; and PPE and emergency equipment. State or local plans that comply with SARA Title III plans may be substituted into the employer's plan or can be kept together for reference.
+
+1910.120(q)(3) - Procedures for handling emergency response: Develop and implement a facility response plan compatible with the "incident command system," a set of procedures for controlling and managing operations during an emergency. Designate a facility incident commander (IC) to lead the response with facility employees. The designated person must be able to integrate the response effort into the incident command post and coordinate with the IC with overall respon­sibility for managing emergency activities at the site and for directing the activities through a chain of command to those responsible for carrying out specific emergency response tasks. (For information on the incident command system see the Additional Resources page.)
+
+1910.120(q)(4)-(6) - Training: Appropriately train all those who will respond to an emergency before they participate in an actual incident. Training for emergency responders depends on their job function and role during an emergency. Pay particular attention to requirements for: skilled support personnel (like equipment operators); specialist employees (substance specific hazard knowledge); first responders (awareness level); first responder (operations level); hazardous materials technician; hazardous materials specialist; and on scene IC.
+
+1910.120(q)(7) - Trainers: Trainers who teach any of the training required must have satisfactorily completed a training course for teaching the subjects they teach. Otherwise trainers must have the training and/or academic credentials and instructional experience to demonstrate that they are competent to teach and that they have good command of the subject matter they teach.
+
+1910.120(q)(8) - Refresher Training: Employees trained pursuant to section 1910.120(q)(6) must receive annual refresher training for long enough and with enough material to maintain understanding or demonstrate their competency at least yearly.
+
+1910.120(q)(9) - Medical surveillance and consultation: Monitor workers' health to detect adverse medical conditions. Provide access to regular medical examinations and consultations for workers potentially overexposed to hazardous substances during their work. Medical surveillance for responders depends on their job function during an emergency and must meet the requirements of 1910.120(f). Access to and maintenance of monitoring and medical records must be maintained according to 29 CFR 1910.1020.
+
+1910.120(q)(10) - Chemical protective clothing: Describe in the emergency response plan how chemical protective clothing is to be selected, how workers maintain and store it, its limitations, decontamination and disposal procedures, and fit testing procedures. Chemical protective clothing must meet the requirements of 1910.120)(g)(3)-(g)(5).
+
+1910.120(q)(11) - Post-emergency response operations: If workers are involved in cleanup operations after responding to an emergency, specify protective measures in the written program. Keep a written plan that addresses the HAZWOPER requirements in 1910.120(b)-(o) that specifically apply to the cleanup work operations.
+
+Preambles to Final Rules
+Hazardous Waste Operations and Emergency Response
+Directives
+Technical enforcement and assistance guidelines for Hazardous Waste Site and RCRA Corrective Action Cleanup Operations HAZWOPER 1910.120(b)-(o). CPL 02-02-071 (November 5, 2003). Provides guidance to ensure the effective management of locally conducted occupational safety and health training for OSHA Agency workers.
+Hazardous Waste Operations and Emergency Response; Final Rule and Corrections. CSP 01-01-024 [STP 2-1.154C] (June 10, 1991). Describes a Federal Program Change to the Regions and State designees.
+Inspection procedures for 29 CFR 1910.120 and 1926.65 paragraphs (q): Emergency response to Hazardous Substance Releases. CPL 02-02-073 (August 27, 2007). Updates policies and provides clarification to ensure uniform enforcement of paragraph (q) of HAZWOPER, 29 CFR 1910.120 and 1926.65.
+Inspection Guidelines for Post-Emergency Response Operations under CFR 1910.120. CPL 02-02-051 (November 5, 1990). Provides procedures for ensuring uniform enforcement of HAZWOPER training for workers involved in post-emergency response operations.
+Other Related Information
+The Application of HAZWOPER to Worksite Response and Cleanup Activities
