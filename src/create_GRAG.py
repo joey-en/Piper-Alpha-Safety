@@ -38,7 +38,7 @@ def parse_osha_text(raw_text: str):
 
         nodes.append({
             "id": clause_id,
-            "text": clause_text,
+            "text": f"{clause_id}: {clause_text}",
             "parent_id": parent_id
         })
 
@@ -60,7 +60,7 @@ def get_parent_clause_id(clause_id: str):
     # Remove the last (...) group
     return re.sub(r"\([a-zA-Z0-9]+\)$", "", clause_id)
 
-def chunk_text(text, chunk_size=500, overlap=200):
+def chunk_text(text, chunk_size=200, overlap=20):
     """
     Splits a string into smaller chunks of up to `chunk_size` characters,
     with `overlap` characters shared between consecutive chunks.
@@ -119,9 +119,9 @@ class OSHA_GraphBuilder:
                 label = "Parent"
             else:
                 label = "Clause"
-            db.create_node(n["id"], n["text"], label=label)
+            self.create_node(n["id"], n["text"], label=label)
         for n in nodes:
-            db.create_relationship(n["parent_id"], n["id"], rel_type="CONTAINS")
+            self.create_relationship(n["parent_id"], n["id"], rel_type="CONTAINS")
 
 
 # --------------------------------------------
@@ -187,3 +187,4 @@ def create_graph_database(folder="data"):
 
     db.close()
     print("Done building graph!")
+create_graph_database(folder="data")
