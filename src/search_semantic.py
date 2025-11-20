@@ -76,8 +76,15 @@ def get_or_build_embeddings(driver):
     If not present, build them from Neo4j clauses and save them.
     Returns: FAISS index + id list
     """
-    index, ids = load_embeddings()
-    if index is None or ids is None:
+
+    file_path = os.path.join(EMBEDDING_PATH, "faiss_index.idx")
+    os.makedirs(EMBEDDING_PATH, exist_ok=True)
+
+    if os.path.isfile(file_path):
+        index, ids = load_embeddings()
+        print(f"[INFO] Loaded embeddings for {len(ids)} clauses.")
+
+    else:
         print("[INFO] No saved embeddings found. Building embeddings now...")
         # Fetch all clauses from Neo4j
         with driver.session() as session:
@@ -85,11 +92,9 @@ def get_or_build_embeddings(driver):
             clause_texts = [(r["clause_id"], r["text"]) for r in result]
         
         # Build embeddings and save
-        index, ids, embeddings = build_embeddings(clause_texts)
+        index, ids, _ = build_embeddings(clause_texts)
         save_embeddings(index, ids)
         print(f"[INFO] Built and saved embeddings for {len(ids)} clauses.")
-    else:
-        print(f"[INFO] Loaded embeddings for {len(ids)} clauses.")
 
     return index, ids
 

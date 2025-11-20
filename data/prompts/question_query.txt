@@ -1,0 +1,6 @@
+MATCH (parent {id: $id})
+OPTIONAL MATCH (grandparent)-[:CONTAINS|NEXT]->(parent)
+OPTIONAL MATCH (parent)-[:CONTAINS|NEXT]->(child)
+WITH grandparent, parent, COLLECT(child) AS children
+UNWIND [grandparent, parent] + children AS node
+RETURN node.id AS nodeID, node.text AS nodeText
