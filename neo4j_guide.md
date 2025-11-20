@@ -74,4 +74,80 @@ python test/neo4j_connection.py
 Connection successful!
 ```
 
-This confirms that your Python environment can communicate with the Neo4j instance.
+# **Neo4j: Full Graph Visualization Queries**
+
+## 1. Visualize All Nodes and Relationships
+
+* To see **all nodes with all relationships** (OSHA + non-OSHA):
+
+```cypher
+MATCH (n)-[r]->(m)
+RETURN n, r, m
+```
+
+* This shows the full graph with edges, including `CONTAINS` and `NEXT`.
+
+---
+
+## 2. Visualize OSHA Clause Hierarchy
+
+* All parent → child relationships:
+
+```cypher
+MATCH (p:Parent)-[r:CONTAINS*]->(c:Clause)
+RETURN p, r, c
+```
+
+* Multi-level query shows the **full OSHA hierarchy**.
+* Graph view will highlight **Parent nodes and Clause nodes** automatically.
+
+---
+
+## 3. Visualize Non-OSHA Documents and Chunks
+
+* Show **document → chunk relationships**:
+
+```cypher
+MATCH (d:Document)-[r:NEXT*]->(c:Chunk)
+RETURN d, r, c
+ORDER BY d.id, c.id
+```
+
+* Reconstructs the **sequence of chunks** visually.
+* Purple `Document` nodes → Blue `Chunk` nodes in Neo4j Browser.
+
+---
+
+## 4. Combined OSHA + Non-OSHA Graph
+
+* To see **everything in one view**:
+
+```cypher
+MATCH (n)-[r]->(m)
+RETURN n, r, m
+```
+
+* Includes:
+
+  * OSHA hierarchy (`Parent` → `Clause` via `CONTAINS`)
+  * Document chunks (`Document` → `Chunk` via `NEXT`)
+* Useful for **exploring connections** and testing ingestion results.
+
+---
+
+## Notes on Large Graphs
+
+* 2,000 nodes is manageable for Neo4j Browser, but:
+
+  * Graph view rendering may take a few seconds.
+  * If the graph feels slow, you can filter by label first:
+
+```cypher
+MATCH (p:Parent)-[r:CONTAINS]->(c:Clause)
+RETURN p, r, c
+```
+
+```cypher
+MATCH (d:Document)-[r:NEXT]->(c:Chunk)
+RETURN d, r, c
+```
