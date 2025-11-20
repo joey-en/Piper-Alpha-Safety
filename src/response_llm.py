@@ -1,9 +1,8 @@
-# filename: query_gemini.py
-
 import os
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
 import google.generativeai as genai
+from search_semantic import * 
 
 # -------------------------------
 # Load Gemini API Key
@@ -38,23 +37,20 @@ class Neo4jRetriever:
             )
             return [(r["chunk_id"], r["text"]) for r in result]
 
-    # ================================================================================================
-    # HARD CODED FOR TESTING!!!!! 
-    # ================================================================================================
     def search_relevant_clauses(self, question):
-        q = question.lower()
-        with self.driver.session() as session:
-            result = session.run(
-                """
-                MATCH (c:Clause)
-                WHERE toLower(c.text) CONTAINS 'fire'
-                OR toLower(c.text) CONTAINS 'emergency'
-                OR toLower(c.text) CONTAINS 'evacuation'
-                RETURN c.id AS clause_id
-                """
-            )
-            return [r["clause_id"] for r in result]
-    # ================================================================================================
+        # Step 1: load embeddings
+        index, ids = get_or_build_embeddings(self.driver)
+        if index is None or ids is None:
+            # Build embeddings from Neo4j
+            with self.driver.session() as session:
+                result = session.run("MATCH (c:Clause) RETURN c.id AS clause_id, c.text AS text")
+                clause_texts = [(r["clause_id"], r["text"]) for r in result]
+            index, ids, embeddings = build_and_save_embeddings(clause_texts)
+
+        # Step 2: perform semantic search
+        top_clause_ids = query_similar(question, index, ids, top_k=5)
+        print(top_clause_ids)
+        return top_clause_ids
         
 
 # -------------------------------
