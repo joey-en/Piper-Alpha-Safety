@@ -2,7 +2,8 @@ import os
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
 import google.generativeai as genai
-from search_semantic import * 
+from .search_semantic import * 
+from pathlib import Path
 
 PROMPT_PATH = "./data/prompts/chat_prompt.txt"
 TOPK = 3
@@ -10,7 +11,10 @@ TOPK = 3
 # -------------------------------
 # Load Gemini API Key
 # -------------------------------
-load_dotenv(".env")
+# fixing the path for the dotenv file because it was causing errors when running the FastAPI app
+env_path = Path(__file__).parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 if not GEMINI_API_KEY:
     raise RuntimeError("GEMINI_API_KEY not found in environment variables.")
@@ -88,11 +92,12 @@ def answer_query(question):
     # Step 1: find relevant clause IDs and their text
     all_chunks = retriever.search_relevant_clauses(question)
     if not all_chunks:
+        # print("No relevant clauses found.")
         return {"answer": "No relevant clauses found.", "clause_ids": []}
 
     # Step 3: ask LLM
     answer = ask_gemini_llm(question, all_chunks.values())
-    
+    # print("LLM Answer:", answer[:200])
     return {"answer": answer, "clause_ids": all_chunks.keys()}
 
 # -------------------------------
@@ -126,5 +131,5 @@ What does clause 1910.1200(b)(1) require employers to do?
 # -------------------------------
 # Run terminal test if executed directly
 # -------------------------------
-if __name__ == "__main__":
-    terminal_test()
+# if __name__ == "__main__":
+#     terminal_test()

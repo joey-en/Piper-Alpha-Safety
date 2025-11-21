@@ -5,3 +5,6 @@ neo4j
 google-generativeai
 sentence-transformers
 faiss-cpu
+fastapi
+uvicorn
+pydantic
