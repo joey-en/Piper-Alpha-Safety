@@ -3,6 +3,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from src.response_llm import answer_query 
+from fastapi.middleware.cors import CORSMiddleware
 
 # --- Pydantic Models ---
 # Define the structure for the request (user input)
@@ -21,6 +22,21 @@ app = FastAPI(
     description="A Graph Retrieval-Augmented Generation service using Neo4j and Gemini.",
     version="1.0.0"
 )
+
+# --- 1. CONFIGURE CORS MIDDLEWARE ---
+origins = [
+    "http://localhost:3000", # The default port for Create React App/Vite
+    "http://127.0.0.1:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,          # Allow these domains
+    allow_credentials=True,         # Allow cookies/authorization headers
+    allow_methods=["*"],            # Allow POST, GET, etc.
+    allow_headers=["*"],            # Allow all headers
+)
+# --- END CORS CONFIG ---
 
 # --- Health Check Endpoint ---
 @app.get("/")
