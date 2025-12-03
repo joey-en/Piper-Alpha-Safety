@@ -1,7 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-dotenv
 numpy
-dotenv
 requests
 neo4j
 google-generativeai
 sentence-transformers
 faiss-cpu
+python-multipart
