@@ -46,7 +46,7 @@ Piper-Alpha-Safety/
 * Each OSHA clause is linked to its parent, children, and references.
 * Retrieval returns **full context**, not isolated text fragments.
 
-![1765026797755](image/README/neo4j_graph.png)
+![1765026797755](image/README/neo4j_graph.png "graph map of all the documents")
 
 ### **Semantic Retrieval using FAISS**
 
@@ -70,12 +70,12 @@ Piper-Alpha-Safety/
 * Vite + React Router interface
 * Fully decoupled client-server architecture
 * Displays:
-
   * Answer
-  * Clause references
-  * Suggested steps
+  * Clause referencesSuggested steps
   * PPE
   * Critical alerts
+
+![frontend_webapp](image/README/frontend_webapp.png)
 
 ---
 
