@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
 import google.generativeai as genai
-from .search_semantic import *
+from backend.src.search_semantic import *
 import json
 import re
 
