@@ -5,45 +5,119 @@ import re
 # --------------------------------------------
 # 1. PARSER — Extract OSHA clause structure
 # --------------------------------------------
+def extract_references(clause_text: str):
+    """
+    Finds referenced OSHA clauses inside the clause text.
+    Returns a list of clause IDs like '1910.38', '1910.134', etc.
+    """
+
+    # Matches 1910.xxx optionally prefixed by '29 CFR'
+    ref_pattern = r"(?:29\s*CFR\s*)?(1910\.\d+(?:\([a-zA-Z0-9]+\))*)"
+
+    refs = re.findall(ref_pattern, clause_text)
+    return list(set(refs))  # remove duplicates
+
+def parse_standard_header(lines):
+    """
+    Detects:
+        Standard Number: 1910.1200
+        Title: Hazard Communication.
+    Returns (id, title_text, end_index)
+    """
+    std_num = None
+    title = None
+    i = 0
+
+    while i < len(lines):
+        line = lines[i].strip()
+
+        if line.startswith("Standard Number:"):
+            std_num = line.split("Standard Number:")[1].strip()
+
+        elif line.startswith("Title:"):
+            title = line.split("Title:")[1].strip()
+
+        # Stop when we hit the first clause ID
+        if re.match(r"^1910\.\d+(?:\([a-zA-Z0-9]+\))*$", line):
+            break
+
+        i += 1
+
+    if std_num:
+        full_text = f"{std_num}: {title}" if title else std_num
+        return std_num, full_text, i
+
+    return None, None, 0  # no standard header found
+
 def parse_osha_text(raw_text: str):
-    """
-    Takes raw OSHA regulatory text (copy-paste from website)
-    and returns a list of nodes with {id, text, parent_id}.
-    """
-
-    # OSHA clause patterns like:
-    # 1910.1200
-    # 1910.1200(b)
-    # 1910.1200(b)(3)(ii)
-    clause_pattern = r"(1910\.\d+(?:\([a-zA-Z0-9]+\))*)"
-
-    matches = list(re.finditer(clause_pattern, raw_text))
+    lines = raw_text.splitlines()
+    clause_pattern = r"^(1910\.\d+(?:\([a-zA-Z0-9]+\))*)$"
 
     nodes = []
 
-    for i, match in enumerate(matches):
-        clause_id = match.group(1)
-        start = match.end()
+    # --------------------------------------------------------
+    # 1. Check if document begins with "Standard Number" header
+    # --------------------------------------------------------
+    std_id, std_text, start_index = parse_standard_header(lines)
 
-        # End of this clause = before next clause or end of text
-        if i + 1 < len(matches):
-            end = matches[i + 1].start()
-        else:
-            end = len(raw_text)
-
-        clause_text = raw_text[start:end].strip()
-
-        # Determine parent id
-        parent_id = get_parent_clause_id(clause_id)
-
+    if std_id:
         nodes.append({
-            "id": clause_id,
-            "text": f"{clause_id}: {clause_text}",
-            "parent_id": parent_id
+            "id": std_id,
+            "text": std_text,
+            "parent_id": None,
+            "refs": extract_references(std_text)
         })
+    else:
+        start_index = 0
+
+    # --------------------------------------------------------
+    # 2. Parse all clauses below the document header
+    # --------------------------------------------------------
+    i = start_index
+    n = len(lines)
+
+    while i < n:
+        line = lines[i].strip()
+
+        match = re.match(clause_pattern, line)
+        if match:
+            clause_id = match.group(1)
+            parent_id = get_parent_clause_id(clause_id)
+
+            # If no explicit parent but we detected a Standard Number, attach to it
+            if parent_id is None and std_id and clause_id != std_id:
+                parent_id = std_id
+
+            # Gather text block
+            j = i + 1
+            content_lines = []
+
+            while j < n:
+                next_line = lines[j].strip()
+
+                if re.match(clause_pattern, next_line):
+                    break
+
+                if next_line != "":
+                    content_lines.append(next_line)
+
+                j += 1
+
+            full_text = " ".join(content_lines).strip()
+            refs = extract_references(full_text)
+
+            nodes.append({
+                "id": clause_id,
+                "text": f"{clause_id}: {full_text}",
+                "parent_id": parent_id,
+                "refs": refs
+            })
+
+            i = j
+        else:
+            i += 1
 
     return nodes
-
 
 def get_parent_clause_id(clause_id: str):
     """
@@ -88,16 +162,14 @@ class OSHA_GraphBuilder:
         self.driver.close()
 
     def create_node(self, node_id, text, label="Clause"):
-        """
-        Creates a node in Neo4j with the given label.
-        """
         query = f"""
-        MERGE (n:{label} {{id: $id}})
+        MERGE (n {{id: $id}})
         SET n.text = $text
+        SET n :{label}
         """
         with self.driver.session() as session:
             session.run(query, id=node_id, text=text)
-
+            
     def create_relationship(self, parent_id, child_id, rel_type="CONTAINS"):
         """
         Creates a relationship between two nodes.
@@ -106,13 +178,32 @@ class OSHA_GraphBuilder:
         if parent_id is None:
             return
         query = f"""
-        MATCH (p {{id: $pid}})
-        MATCH (c {{id: $cid}})
+        MERGE (c {{id: $cid}})
+        MERGE (p {{id: $pid}})
         MERGE (p)-[:{rel_type}]->(c)
         """
         with self.driver.session() as session:
             session.run(query, pid=parent_id, cid=child_id)
+
+    def resolve_references(self, nodes):
+        """
+        For each node, create REFERS_TO edges to ALL nodes with matching clause_id.
+        """
+        # Build lookup: clause_id → list of graph ids
+        lookup = {}
+        for n in nodes:
+            lookup.setdefault(n["clause_id"], []).append(n["id"])
+
+        # Build edges
+        for n in nodes:
+            for ref in n["refs"]:
+                if ref in lookup:
+                    for target_graph_id in lookup[ref]:
+                        self.create_relationship(n["id"], target_graph_id, rel_type="REFERS_TO")
+
+
     def ingest_nodes(self, nodes):
+        # Create nodes
         for n in nodes:
             # Top-level clauses (no parentheses) get 'Parent'
             if "(" not in n["id"]:
@@ -120,9 +211,13 @@ class OSHA_GraphBuilder:
             else:
                 label = "Clause"
             self.create_node(n["id"], n["text"], label=label)
+        # Create CONTAINS relationships
         for n in nodes:
             self.create_relationship(n["parent_id"], n["id"], rel_type="CONTAINS")
-
+        # Create REFERS_TO relationships
+        for n in nodes:
+            for ref in n.get("refs", []):
+                self.create_relationship(n["id"], ref, rel_type="REFERS_TO")
 
 # --------------------------------------------
 # 3. MAIN SCRIPT — Load every file in /data
