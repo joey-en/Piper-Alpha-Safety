@@ -32,7 +32,7 @@ Piper-Alpha-Safety/
 │   ├── package.json
 │   └── run_frontend.bat
 │
-├── start_piper_alpha.bat                  # Starts backend + frontend together
+├── start_piper_alpha.bat        # Starts backend + frontend together
 └── README.md
 ```
 
@@ -40,19 +40,21 @@ Piper-Alpha-Safety/
 
 # **Features**
 
-### **✓ Graph-RAG (Graph Retrieval-Augmented Generation)**
+### **Graph-RAG (Graph Retrieval-Augmented Generation)**
 
 * Regulatory text is stored as interconnected nodes (Neo4j).
 * Each OSHA clause is linked to its parent, children, and references.
-* Retrieval always returns **full context**, not isolated text fragments.
+* Retrieval returns **full context**, not isolated text fragments.
 
-### **✓ Semantic Retrieval using FAISS**
+![1765026797755](image/README/neo4j_graph.png)
+
+### **Semantic Retrieval using FAISS**
 
 * Every clause and IChemE chunk is embedded using SentenceTransformer.
 * FAISS returns the closest matches to a user's question.
 * The ID-mapping rehydrates full graph context from Neo4j.
 
-### **✓ LLM Answer Generation (Gemini 2.5 Pro)**
+### **LLM Answer Generation (Gemini 2.5 Pro)**
 
 * Large context window (1M tokens).
 * Prompt enforces:
@@ -63,7 +65,7 @@ Piper-Alpha-Safety/
   * No hallucinations
   * Safety escalation when needed
 
-### **✓ Modern Frontend**
+### **Modern Frontend**
 
 * Vite + React Router interface
 * Fully decoupled client-server architecture
